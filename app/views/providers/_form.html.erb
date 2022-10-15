@@ -38,7 +38,7 @@
 
   <div class="my-5">
     <%= form.label :bank_id %>
-    <%= form.text_field :bank_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.collection_select(:bank_id, Bank.all, :id, :bank_name, prompt: "Choose a bank") %>
   </div>
 
   <div class="inline">
