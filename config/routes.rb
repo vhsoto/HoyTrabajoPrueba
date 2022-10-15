@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :providers
-  resources :banks
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  resources :providers do
+    get '/page/:page', action: :index, on: :collection
+  end
+  resources :banks do
+    get '/page/:page', action: :index, on: :collection
+  end
+  
   # root "articles#index"
 end

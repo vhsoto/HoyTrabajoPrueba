@@ -10,5 +10,6 @@
 
   <div id="providers" class="min-w-full">
     <%= render @providers %>
+    <%= paginate @providers, remote: true %>
   </div>
 </div>

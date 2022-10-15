@@ -3,7 +3,7 @@ class ProvidersController < ApplicationController
 
   # GET /providers or /providers.json
   def index
-    @providers = Provider.all
+    @providers = Provider.order(:provider_name).page params[:page]
   end
 
   # GET /providers/1 or /providers/1.json
