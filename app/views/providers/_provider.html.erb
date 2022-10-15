@@ -1,7 +1,9 @@
 <div id="<%= dom_id provider %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Provider name:</strong>
-    <%= provider.provider_name %>
+    <%= link_to provider, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" do %>
+      <%= provider.provider_name %>
+    <% end %>
   </p>
 
   <p class="my-5">
@@ -26,11 +28,11 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Bank:</strong>
-    <%= provider.bank_id %>
+    <%= provider.bank.bank_name %>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this provider", provider, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= button_to 'Destroy this provider', provider_path(provider), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>    
     <%= link_to 'Edit this provider', edit_provider_path(provider), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
