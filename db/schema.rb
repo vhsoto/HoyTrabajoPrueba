@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_15_001736) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_024036) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,4 +20,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_001736) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "providers", force: :cascade do |t|
+    t.string "provider_name"
+    t.string "dni"
+    t.string "contact_name"
+    t.string "contact_tel"
+    t.string "number_bank_account"
+    t.bigint "bank_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bank_id"], name: "index_providers_on_bank_id"
+  end
+
+  add_foreign_key "providers", "banks"
 end
