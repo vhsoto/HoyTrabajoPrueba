@@ -81,3 +81,5 @@ end
 gem "kaminari", "~> 1.2"
 
 gem "view_component", "~> 2.74"
+
+gem "devise", "~> 4.8"

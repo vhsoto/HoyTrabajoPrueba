@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  post 'flash', to: 'flash#dismiss'
-  get 'dashboard/index'
+  devise_for :users
+  authenticated :user do
+    root 'dashboard#index', as: :authenticated_root
+  end
   resources :providers do
     get '/page/:page', action: :index, on: :collection
   end
@@ -8,5 +10,6 @@ Rails.application.routes.draw do
     get '/page/:page', action: :index, on: :collection
   end
   
-  # root "articles#index"
+  post 'flash', to: 'flash#dismiss'
+  root "dashboard#index"
 end
