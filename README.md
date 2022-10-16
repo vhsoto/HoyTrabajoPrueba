@@ -9,10 +9,10 @@ PostgreSQL -v 12.8
 Then clone this repository and inside the project folder run the following commands:
 ```sh
 bundle install
+npm install
 rails db:create
 rails db:migrate
 rails db:seed
-rails s
 ```
 To run the app and the Tailwind styles works, run the following command
 ```sh
