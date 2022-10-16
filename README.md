@@ -1,24 +1,20 @@
 # README
+This is a simple app to show a list of providers.
+### _Make sure you have installed on your machine_
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby -v 3.1.2
+Rails -v 7.0.2
+PostgreSQL -v 12.8
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Then clone this repository and inside the project folder run the following commands:
+```sh
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+rails s
+```
+To run the app and the Tailwind styles works, run the following command
+```sh
+./bin/dev
+```
