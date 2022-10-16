@@ -2,14 +2,45 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Providers</h1>
     <%= link_to 'New provider', new_provider_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
-
-  <div id="providers" class="min-w-full">
-    <%= render @providers %>
-    <%= paginate @providers, remote: true %>
+  <div id="providers">
+    <div class="flex flex-col">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full">
+              <thead>
+                <tr>
+                  <th>
+                    <div class="font-semibold text-left">Provider</div>
+                  </th>
+                  <th>
+                    <div class="font-semibold text-left">Contact</div>
+                  </th>
+                  <th>
+                    <div class="font-semibold text-left">Contact number</div>
+                  </th>
+                  <th>
+                    <div class="font-semibold text-left">Bank</div>
+                  </th>
+                  <th>
+                    <div class="font-semibold text-left">Bank account</div>
+                  </th>
+                  <th colspan="2"></th>
+                </tr>
+              </thead>
+              <tbody class="text-sm divide-y divide-gray-100">
+                <%= render @providers %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<%= paginate @providers, remote: true %>
 </div>

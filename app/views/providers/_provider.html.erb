@@ -1,39 +1,42 @@
 <div id="<%= dom_id provider %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Provider name:</strong>
-    <%= link_to provider, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" do %>
-      <%= provider.provider_name %>
+  <tr class="border-b">
+    <td class="text-sm text-gray-900 font-light py-4 w-96">
+      <div class="text-left">
+        <%= link_to provider, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" do %>
+          <%= provider.provider_name %>
+        <% end %>
+      </div>
+    </td>
+    <td class="text-sm text-gray-900 font-light py-4 w-96">
+      <div class="text-left">
+        <%= provider.contact_name %>
+      </div>
+    </td>
+    <td class="text-sm text-gray-900 font-light py-4 w-96">
+      <div class="text-left">
+        <%= provider.contact_tel %>
+      </div>
+    </td>
+    <td class="text-sm text-gray-900 font-light py-4 w-96">
+      <div class="text-left">
+        <%= provider.bank.bank_name %>
+      </div>
+    </td>
+    <td class="text-sm text-gray-900 font-light py-4 w-96">
+      <div class="text-left">
+        <%= render EmptyContentComponent.new(item: provider.number_bank_account, msg: "No data") %>
+      </div>
+    </td>
+    <% if action_name != "show" %>
+      <td class="text-sm text-gray-900 font-light py-2">
+        <div class="text-right">
+          <%= button_to 'Destroy', provider_path(provider), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+        </div>
+      </td>
+      <td class="text-sm text-gray-900 font-light py-2">
+        <div class="text-right">
+          <%= link_to 'Edit', edit_provider_path(provider), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+        </div>
+      </td>
     <% end %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Dni:</strong>
-    <%= provider.dni %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Contact name:</strong>
-    <%= provider.contact_name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Contact tel:</strong>
-    <%= provider.contact_tel %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Number bank account:</strong>
-    <%= provider.number_bank_account %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Bank:</strong>
-    <%= provider.bank.bank_name %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= button_to 'Destroy this provider', provider_path(provider), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>    
-    <%= link_to 'Edit this provider', edit_provider_path(provider), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+  </tr>
