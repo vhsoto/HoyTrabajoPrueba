@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'flash', to: 'flash#dismiss'
   get 'dashboard/index'
   resources :providers do
     get '/page/:page', action: :index, on: :collection
