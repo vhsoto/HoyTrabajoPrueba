@@ -1,6 +1,5 @@
-<nav
-  class="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
->
+<% if user_signed_in? %>
+<nav class="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light">
   <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
     <button
       class="navbar-toggler text-gray-200 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
@@ -29,7 +28,6 @@
     </button>
     <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent1">
       <a class="text-xl text-white pr-2 font-semibold" href="#">System</a>
-      <!-- Left links -->
       <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
         <li class="nav-item p-2">
           <%= link_to "Dashboard", authenticated_root_path, class: "nav-link text-white" %>
@@ -41,16 +39,17 @@
           <%= link_to  "Banks", banks_path, class:"nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0" %>
         </li>
       </ul>
-      <!-- Left links -->
     </div>
-    <!-- Collapsible wrapper -->
-    <!-- Right elements -->
     <div class="flex items-center relative gap-4">
-      <!-- Icon -->
-      <p>example</p>
-      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars"
-    class="w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="currentColor" d="M160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96C43 32 0 75 0 128V384c0 53 43 96 96 96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32h64zM504.5 273.4c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22v72H192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32H320v72c0 9.6 5.7 18.2 14.5 22s19 2 26-4.6l144-136z"/></svg>
+      
+        <p>example</p>
+        <%= link_to  destroy_user_session_path, data: { "turbo-method": :delete }, class:"class" do %>
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars"
+            class="w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="currentColor" d="M160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96C43 32 0 75 0 128V384c0 53 43 96 96 96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32h64zM504.5 273.4c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22v72H192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32H320v72c0 9.6 5.7 18.2 14.5 22s19 2 26-4.6l144-136z"/></svg>
+        <% end %>
+  
+
     </div>
-    <!-- Right elements -->
   </div>
 </nav>
+<% end %>
